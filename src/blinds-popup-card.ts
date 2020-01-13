@@ -54,8 +54,6 @@ class BlindsPopupCard extends LitElement {
       }
     }
     
-
-    console.log(entities);
     var count = -1;
     return html`
       <div class="${fullscreen === true ? 'popup-wrapper':''}">
@@ -81,10 +79,8 @@ class BlindsPopupCard extends LitElement {
   updated() { }
 
   _switch(e) {
-    console.log(e.path[0].dataset.value);
     var value = e.path[0].dataset.value;
     for(var entity of this.config.entities) {
-      console.log(entity);
       this.hass.callService("input_number", "set_value", {
         entity_id: entity.entity,
         value: entity.positions[value]
