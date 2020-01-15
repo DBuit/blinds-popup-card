@@ -79,12 +79,14 @@ class BlindsPopupCard extends LitElement {
   updated() { }
 
   _switch(e) {
-    var value = e.path[0].dataset.value;
-    for(var entity of this.config.entities) {
-      this.hass.callService("input_number", "set_value", {
-        entity_id: entity.entity,
-        value: entity.positions[value]
-      });
+    if(e.target.dataset && e.target.dataset.value) {
+      var value = e.target.dataset.value;
+      for(var entity of this.config.entities) {
+        this.hass.callService("input_number", "set_value", {
+          entity_id: entity.entity,
+          value: entity.positions[value]
+        });
+      }
     }
   }
 
