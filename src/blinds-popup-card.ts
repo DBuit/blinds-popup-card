@@ -138,6 +138,7 @@ class BlindsPopupCard extends LitElement {
           width: 40px;
           color: rgba(255,255,255,0.3);
           font-size: 30px;
+          --mdc-icon-size: 30px;
           padding-top:5px;
         }
         .icon ha-icon {
@@ -145,7 +146,7 @@ class BlindsPopupCard extends LitElement {
             height:30px;
         }
         .icon.on ha-icon {
-            fill: #f7d959;
+            color: #f7d959;
         }
         h4 {
             color: #FFF;
@@ -193,7 +194,7 @@ class BlindsPopupCard extends LitElement {
           display: block;
           font-size: 25px;
           margin-bottom: 5px;
-          fill:#000;
+          color:#000;
           pointer-events: none;
         }
         .multi-switch li:hover {
