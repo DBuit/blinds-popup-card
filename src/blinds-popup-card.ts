@@ -1,7 +1,5 @@
 import { LitElement, html, css, svg } from 'lit-element';
-import { classMap } from "lit-html/directives/class-map";
-import { closePopUp } from 'card-tools/src/popup';
-import { computeStateDisplay, computeStateName } from 'custom-card-helpers';
+import { fireEvent } from "card-tools/src/event";
 
 class BlindsPopupCard extends LitElement {
   config: any;
@@ -92,7 +90,15 @@ class BlindsPopupCard extends LitElement {
 
   _close(event) {
       if(event && event.target.className.includes('popup-inner')) {
-          closePopUp();
+        const action = {
+            browser_mod: {
+                service: "browser_mod.close_popup",
+                data: {
+                  browser_id: 'THIS'
+              }
+            }
+        }
+        fireEvent("ll-custom", action);
       }
   }
 
